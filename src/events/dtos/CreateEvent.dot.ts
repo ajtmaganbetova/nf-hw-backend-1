@@ -2,7 +2,7 @@ export interface CreateEventDto {
     name:string;
     description:string;
     date:Date;
-    location:string;
+    city:string;
     duration:string;
   }
   

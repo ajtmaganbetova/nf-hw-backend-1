@@ -11,7 +11,7 @@ class EventService {
         name:"Art Fair",
         description: "Explore the latest works from local and international artists",
         date: new Date(),
-        location:"Almaty, KBTU",
+        city:"Almaty",
         duration:"10:00 AM - 6:00PM"
     },
     {
@@ -19,7 +19,7 @@ class EventService {
         name:"Backend Lecture",
         description: "",
         date: new Date("2024-06-11"),
-        location:"Almaty, Satbayev University",
+        city:"Almaty",
         duration:"9:15 AM - 11:15AM"
     },
       {
@@ -27,7 +27,7 @@ class EventService {
         name:"Demo Day",
         description:"",
         date: new Date("2024-08-09"),
-        location:"Almaty, Satbayev University",
+        city:"Astana",
         duration:"9:00 AM - 12:00 PM"
       },
     ];
@@ -45,7 +45,7 @@ class EventService {
             name: userDto.name,
             description: userDto.description,
             date: new Date(userDto.date),
-            location: userDto.location,
+            city: userDto.city,
             duration: userDto.duration,
     };
         this.eventsInDatabase.push(newEvent);
