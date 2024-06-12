@@ -12,10 +12,16 @@ dotenv.config(); // Load environment variables from .env file
 const app = express();
 app.use(bodyParser.json());
 
+<<<<<<< HEAD
 // MongoDB connection
 const mongoURI = process.env.MONGODB_URL as string;
 
 console.log(mongoURI)
+=======
+app.get('/helloworld',(request,response) =>{
+  response.send("Hello World!");
+})
+>>>>>>> 1e59b70dca358b8f1b6f71b8311297e35198b8b7
 
 mongoose.connect(mongoURI, {
   useNewUrlParser: true,

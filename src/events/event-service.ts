@@ -1,10 +1,13 @@
+import mongoose from 'mongoose';
 import { CreateEventDto } from './dtos/CreateEvent.dot';
+import EventModel, { IEvent } from './models/Event';
 import { Event } from './types/response';
 
 
 
 // this event service instance shows how to create a event, get a event by id, and get all events with in-memory data
 class EventService {
+<<<<<<< HEAD
     eventsInDatabase: Event[] = [
     {
         id: 1,
@@ -31,14 +34,28 @@ class EventService {
         duration:"9:00 AM - 12:00 PM"
       },
     ];
+=======
+>>>>>>> 1e59b70dca358b8f1b6f71b8311297e35198b8b7
   
-    getEventById(id: number): Event | null {
-      return this.eventsInDatabase.find((user) => user.id === id) || null;
+    async getEventById(id: string): Promise<IEvent | null> {
+      return await EventModel.findById(id).exec();
     }
-    getEvents(): Event[] {
-      return this.eventsInDatabase;
+
+    async getEvents(): Promise<IEvent[]> {
+      return await EventModel.find().exec(); 
     }
+
+    async createEvent(createEventDto: CreateEventDto): Promise<IEvent> {
+      const { name, description, date, location ,duration} = createEventDto;
+      const newEvent = new EventModel({
+        name,
+        description,
+        date: new Date(date),
+        location,
+        duration
+      });
   
+<<<<<<< HEAD
     createEvent(userDto: CreateEventDto): Event {
         const newEvent: Event = {
             id: 4,
@@ -50,7 +67,13 @@ class EventService {
     };
         this.eventsInDatabase.push(newEvent);
         return newEvent;
+=======
+      await newEvent.save();
+      return newEvent;
+>>>>>>> 1e59b70dca358b8f1b6f71b8311297e35198b8b7
     }
+  
+    
   }
   
   export default EventService;
